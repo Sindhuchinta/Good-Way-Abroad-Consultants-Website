@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --navy: #12213e;
+  --navy-soft: #24365a;
+  --teal: #13778c;
+  --teal-deep: #0d5d6e;
+  --purple: #5b2a94;
+  --purple-deep: #3f1c6b;
+  --gold: #f2a93b;
+  --gold-deep: #d98d1c;
+  --sky: #eaf6fb;
+  --sky-deep: #d7edf6;
+  --paper: #ffffff;
+  --ink-soft: #56637c;
+  --border: #dce6ee;
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container: 1180px;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: var(--paper);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--navy);
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+ul {
+  padding-left: 1.1em;
+}
+
+/* Accessible focus state */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Layout helpers ---------- */
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.section--sky {
+  background: var(--sky);
+}
+
+.section--navy {
+  background: var(--navy);
+}
+
+.section--navy h2,
+.section--navy h3,
+.section--navy p {
+  color: var(--paper);
+}
+
+.section-head {
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.section-head--center {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-head p {
+  max-width: none;
+}
+
+.section-head--center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--teal-deep);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn--primary:hover {
+  background: var(--gold-deep);
+}
+
+.btn--outline {
+  border-color: var(--paper);
+  color: var(--paper);
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn--outline-navy {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.btn--outline-navy:hover {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.btn--block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---------- Grids ---------- */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .section {
+    padding: 56px 0;
+  }
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: 6px;
+  padding: 28px;
+}
+
+.card--purple {
+  border-left-color: var(--purple);
+}
+
+.card--gold {
+  border-left-color: var(--gold);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.96rem;
+  margin-bottom: 14px;
+}
+
+.card-link {
+  font-weight: 600;
+  color: var(--teal-deep);
+  font-size: 0.92rem;
+}
+
+/* ---------- Breadcrumb ---------- */
+
+.breadcrumb {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  padding: 20px 0;
+}
+
+.breadcrumb a {
+  color: var(--teal-deep);
+  font-weight: 600;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ---------- Page hero (interior pages) ---------- */
+
+.page-hero {
+  background: linear-gradient(120deg, var(--navy) 0%, var(--navy-soft) 60%, var(--teal-deep) 130%);
+  padding: 64px 0 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero h1 {
+  color: var(--paper);
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  max-width: 720px;
+}
+
+.page-hero p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.08rem;
+  max-width: 640px;
+}
+
+/* ---------- Stat strip ---------- */
+
+.stat-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.stat-strip .stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.section--navy .stat-strip .stat b {
+  color: var(--gold);
+}
+
+.stat-strip .stat span {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.section--navy .stat-strip .stat span {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- CTA banner ---------- */
+
+.cta-banner {
+  padding: 56px 0;
+}
+
+.cta-banner__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-banner__row h2 {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.cta-banner__row p {
+  margin-bottom: 0;
+}
+
+.cta-banner__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

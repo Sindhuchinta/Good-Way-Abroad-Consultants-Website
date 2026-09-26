@@ -1,0 +1,36 @@
+.about-image {
+  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.office-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.office-card {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 28px 32px;
+}
+
+.office-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.office-card p {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+  .office-grid {
+    grid-template-columns: 1fr;
+  }
+}
